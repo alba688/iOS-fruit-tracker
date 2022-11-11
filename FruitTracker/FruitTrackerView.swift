@@ -21,6 +21,6 @@ struct FruitTrackerView: View {
 
 struct FruitTrackerView_Previews: PreviewProvider {
     static var previews: some View {
-        FruitTrackerView()
+        FruitTrackerView().environmentObject(JsonModel())
     }
 }

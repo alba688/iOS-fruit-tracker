@@ -10,7 +10,7 @@ struct ListView: View {
                 ForEach(jsonData.Fruits) {
                     fruit in
                     NavigationLink {
-                        DetailPage()
+                        DetailPage(fruit)
                     } label: {
                         Text(fruit.name + " (id: \(fruit.id))")
                     }
