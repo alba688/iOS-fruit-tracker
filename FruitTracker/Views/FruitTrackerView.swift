@@ -1,26 +1,19 @@
-//
-//  ContentView.swift
-//  FruitTracker
-//
-//  Created by Alexandra Baker on 11/11/2022.
-//
-
 import SwiftUI
 
-struct ContentView: View {
+struct FruitTrackerView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("My exam!")
         }
         .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct FruitTrackerView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        FruitTrackerView()
     }
 }

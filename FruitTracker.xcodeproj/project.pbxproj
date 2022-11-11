@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EFB3E1AD291E502400EA0747 /* FruitTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB3E1AC291E502400EA0747 /* FruitTrackerApp.swift */; };
-		EFB3E1AF291E502400EA0747 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB3E1AE291E502400EA0747 /* ContentView.swift */; };
+		EFB3E1AF291E502400EA0747 /* FruitTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB3E1AE291E502400EA0747 /* FruitTrackerView.swift */; };
 		EFB3E1B1291E502500EA0747 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFB3E1B0291E502500EA0747 /* Assets.xcassets */; };
 		EFB3E1B4291E502500EA0747 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFB3E1B3291E502500EA0747 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		EFB3E1A9291E502400EA0747 /* FruitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB3E1AC291E502400EA0747 /* FruitTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTrackerApp.swift; sourceTree = "<group>"; };
-		EFB3E1AE291E502400EA0747 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EFB3E1AE291E502400EA0747 /* FruitTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTrackerView.swift; sourceTree = "<group>"; };
 		EFB3E1B0291E502500EA0747 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFB3E1B3291E502500EA0747 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,8 @@
 			isa = PBXGroup;
 			children = (
 				EFB3E1AC291E502400EA0747 /* FruitTrackerApp.swift */,
-				EFB3E1AE291E502400EA0747 /* ContentView.swift */,
+				EFB3E1BA291E507200EA0747 /* Views */,
+				EFB3E1BB291E507800EA0747 /* Data */,
 				EFB3E1B0291E502500EA0747 /* Assets.xcassets */,
 				EFB3E1B2291E502500EA0747 /* Preview Content */,
 			);
@@ -65,6 +66,21 @@
 				EFB3E1B3291E502500EA0747 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EFB3E1BA291E507200EA0747 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EFB3E1AE291E502400EA0747 /* FruitTrackerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EFB3E1BB291E507800EA0747 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFB3E1AF291E502400EA0747 /* ContentView.swift in Sources */,
+				EFB3E1AF291E502400EA0747 /* FruitTrackerView.swift in Sources */,
 				EFB3E1AD291E502400EA0747 /* FruitTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
