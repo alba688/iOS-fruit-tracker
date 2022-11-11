@@ -45,5 +45,5 @@ final class JsonModel: ObservableObject {
 }
 
 // placeholder for data
-let fruit = Fruit(id: 0, order: "Order", genus: "Genus", name: "FruitName", family: "Family", nutritions: nutritions)
+let fruit = Fruit(id: 0, order: "FruitOrder", genus: "FruitGenus", name: "FruitName", family: "FruitFamily", nutritions: nutritions)
 let nutritions = Nutritions(sugar: 0, protein: 0, fat: 0, carbohydrates: 0, calories: 0)
