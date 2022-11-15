@@ -3,8 +3,7 @@ import Foundation
 let url = "https://fruityvice.com/api/fruit/all"
 
 // data structure identical to data from json
-struct Fruit: Identifiable, Decodable
-{
+struct Fruit: Identifiable, Decodable {
     let id: Int
     let order: String
     let genus: String
@@ -13,8 +12,7 @@ struct Fruit: Identifiable, Decodable
     let nutritions: Nutritions
 }
 
-struct Nutritions: Decodable
-{
+struct Nutritions: Decodable {
     let sugar: Double
     let protein: Double
     let fat: Double
@@ -25,6 +23,13 @@ struct Nutritions: Decodable
 // create a class of data from json that is observable within application
 final class JsonModel: ObservableObject {
     @Published var Fruits: [Fruit] = []
+    @Published var Families: Set<String> = []
+    
+    func loadFams() async {
+        for fruit in Fruits {
+            Families.insert(fruit.family)
+        }
+    }
     
     // function to load data from HTTP request
     func loadFruits() async {
@@ -42,6 +47,7 @@ final class JsonModel: ObservableObject {
             fatalError("Error. Cannot decode content from: \n\n\(url)")
         }
     }
+
 }
 
 // placeholder for data

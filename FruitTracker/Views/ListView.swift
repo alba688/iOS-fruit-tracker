@@ -12,7 +12,8 @@ struct ListView: View {
                     NavigationLink {
                         DetailPage(fruit)
                     } label: {
-                        Text(fruit.name + " (id: \(fruit.id))")
+                        Image(systemName: "square.fill")
+                        Text(fruit.name + " (id: \(fruit.id))"+fruit.family)
                     }
                 }
             }.task {
@@ -22,6 +23,7 @@ struct ListView: View {
         }
     }
 }
+
 
 struct FruitListView_Previews: PreviewProvider {
     static var previews: some View {
