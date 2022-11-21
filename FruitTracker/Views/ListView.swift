@@ -7,23 +7,24 @@ struct ListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(jsonData.Fruits) {
+                ForEach(jsonData.Fruits.sorted(by: { $0.id < $1.id} )) {
                     fruit in
                     NavigationLink {
                         DetailPage(fruit)
                     } label: {
                         Image(systemName: "square.fill")
-                        Text(fruit.name + " (id: \(fruit.id))"+fruit.family)
+                        Text(fruit.name + " (id: \(fruit.id)) "+fruit.family)
                     }
                 }
-            }.task {
+            }
+            .task {
                 await jsonData.loadFruits()
+                await jsonData.loadFams()
             }
             .navigationTitle("List of fruits")
         }
     }
 }
-
 
 struct FruitListView_Previews: PreviewProvider {
     static var previews: some View {

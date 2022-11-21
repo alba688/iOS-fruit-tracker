@@ -29,6 +29,7 @@ final class JsonModel: ObservableObject {
         for fruit in Fruits {
             Families.insert(fruit.family)
         }
+        print("Unique families: \(Families)")
     }
     
     // function to load data from HTTP request

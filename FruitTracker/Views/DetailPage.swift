@@ -16,22 +16,7 @@ struct DetailPage: View {
     }
     
     var body: some View {
-        ZStack {
-            HStack {
-                Text("🍌").font(.title)
-                    .frame(width:50, height:50, alignment: .center)
-                    .position(x:50, y: animateFruit ? 800 : -40)
-                Text("🍌").font(.title)
-                    .frame(width:50, height:50, alignment: .center)
-                    .position(x:70, y: animateFruit ? 800 : -60)
-                Text("🍌").font(.title)
-                    .frame(width:50, height:50, alignment: .center)
-                    .position(x:90, y: animateFruit ? 800 : -50)
-            }.onAppear {
-                withAnimation(.easeOut(duration: 3)) {
-                    animateFruit = true
-                }
-            }
+        ZStack(alignment: .leading) {
             
             VStack (alignment: .leading) {
                 HStack {
@@ -58,6 +43,22 @@ struct DetailPage: View {
             .background(highSugar ? .red.opacity(0.8) : .blue.opacity(0.2))
             .onAppear{
                 checkSugar()
+            }
+            
+            HStack {
+                Text("🍌").font(.title)
+                    .frame(width:50, height:50, alignment: .center)
+                    .position(x:50, y: animateFruit ? 800 : -40)
+                Text("🍌").font(.title)
+                    .frame(width:50, height:50, alignment: .center)
+                    .position(x:70, y: animateFruit ? 800 : -60)
+                Text("🍌").font(.title)
+                    .frame(width:50, height:50, alignment: .center)
+                    .position(x:90, y: animateFruit ? 800 : -50)
+            }.onAppear {
+                withAnimation(.easeOut(duration: 3)) {
+                    animateFruit = true
+                }
             }
             
         }
