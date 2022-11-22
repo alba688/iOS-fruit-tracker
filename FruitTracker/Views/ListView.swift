@@ -3,6 +3,27 @@ import SwiftUI
 struct ListView: View {
     
     @EnvironmentObject var jsonData: JsonModel
+
+
+
+    
+    /*mutating func assignColors() {
+        var families = [String]()
+        let colors = ["blue", "green", "red", "gray", "yellow", "brown", "cyan", "indigo", "mint", "orange","pink", "purple", "teal", "blue", "green", "red", "gray", "yellow", "brown", "cyan", "indigo", "mint", "orange","pink", "purple", "teal"]
+        for fruit in jsonData.Fruits {
+            if !families.contains(fruit.family) {
+                families.append(fruit.family)
+            }
+        }
+        print("unique families \(families)")
+        for fam in families {
+            colorFamilies[fam] =
+            ForEach(colors)
+            color in {
+                return color
+            }
+        }
+    }*/
     
     var body: some View {
         NavigationView {
@@ -12,14 +33,13 @@ struct ListView: View {
                     NavigationLink {
                         DetailPage(fruit)
                     } label: {
-                        Image(systemName: "square.fill")
+                        Image(systemName: "square.fill").foregroundColor(.blue)
                         Text(fruit.name + " (id: \(fruit.id)) "+fruit.family)
                     }
                 }
             }
             .task {
                 await jsonData.loadFruits()
-                await jsonData.loadFams()
             }
             .navigationTitle("List of fruits")
         }
@@ -28,6 +48,7 @@ struct ListView: View {
 
 struct FruitListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView().environmentObject(JsonModel())
+        ListView()
+            .environmentObject(JsonModel())
     }
 }
