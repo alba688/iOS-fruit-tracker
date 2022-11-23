@@ -45,7 +45,7 @@ struct DetailPage: View {
                         }.buttonStyle(.borderedProminent).foregroundColor(.white)
                     }
                     
-                }.navigationTitle("\(fruit.name) (Id: \(fruit.id)")
+                }.navigationTitle("\(fruit.name) (Id: \(fruit.id))")
                 .scrollContentBackground(.hidden)
                 .onAppear {
                     checkSugar()
