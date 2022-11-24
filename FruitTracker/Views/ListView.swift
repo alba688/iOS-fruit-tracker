@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ListView: View {
     
-    @EnvironmentObject var jsonData: JsonModel
+    @StateObject var viewModel = FruitViewModel()
     
     func getFamilyColor(for family: String) -> Color{
         if family == "Actinidiaceae" {
@@ -76,7 +76,7 @@ struct ListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(jsonData.Fruits.sorted(by: { $0.id < $1.id} )) {
+                ForEach(viewModel.Fruits.sorted(by: { $0.id < $1.id} )) {
                     fruit in
                     NavigationLink {
                         DetailPage(fruit)
@@ -88,7 +88,7 @@ struct ListView: View {
                 }
             }
             .task {
-                await jsonData.loadFruits()
+                await viewModel.loadFruits()
             }
             .navigationTitle("List of fruits")
         }
@@ -98,7 +98,7 @@ struct ListView: View {
 struct FruitListView_Previews: PreviewProvider {
     static var previews: some View {
         ListView()
-            .environmentObject(JsonModel())
+            .environmentObject(FruitViewModel())
     }
 }
 

@@ -1,9 +1,3 @@
-//
-//  CategoriesListView.swift
-//  FruitTracker
-//
-//  Created by Alexandra Baker on 24/11/2022.
-//
 
 import SwiftUI
 

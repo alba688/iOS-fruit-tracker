@@ -2,8 +2,8 @@ import SwiftUI
 
 struct CategoriesView: View {
     
-    @EnvironmentObject var jsonData: JsonModel
-    
+    @StateObject var viewModel = FruitViewModel()
+
     @State private var showFamilies = false
     @State private var showOrders = false
     @State private var showGenus = false
@@ -19,7 +19,7 @@ struct CategoriesView: View {
                 DisclosureGroup("Family Names", isExpanded: $showFamilies) {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 10) {
-                            ForEach(jsonData.familyNames, id: \.self) {
+                            ForEach(viewModel.familyNames, id: \.self) {
                                 Text($0)
                                     .multilineTextAlignment(.leading)
                                     .frame(width: 140, height: 50).foregroundColor(.white)
@@ -31,7 +31,7 @@ struct CategoriesView: View {
                 DisclosureGroup("Order Names", isExpanded: $showOrders) {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 10) {
-                            ForEach(jsonData.ordersNames, id: \.self) {
+                            ForEach(viewModel.ordersNames, id: \.self) {
                                 Text($0)
                                     .multilineTextAlignment(.leading)
                                     .frame(width: 140, height: 50).foregroundColor(.white)
@@ -43,7 +43,7 @@ struct CategoriesView: View {
                 DisclosureGroup("Genus Names", isExpanded: $showGenus) {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 10) {
-                            ForEach(jsonData.genusNames, id: \.self) {
+                            ForEach(viewModel.genusNames, id: \.self) {
                                 Text($0)
                                     .multilineTextAlignment(.leading)
                                     .frame(width: 140, height: 50).foregroundColor(.white)
@@ -56,7 +56,7 @@ struct CategoriesView: View {
             .navigationTitle("Fruit Categories")
             .onAppear() {
                 Task {
-                    await jsonData.loadFruits()
+                    await viewModel.loadFruits()
                 }
             }
         }
@@ -66,6 +66,6 @@ struct CategoriesView: View {
 
 struct FruitGroupsView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoriesView().environmentObject(JsonModel())
+        CategoriesView().environmentObject(FruitViewModel())
     }
 }

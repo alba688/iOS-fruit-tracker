@@ -21,7 +21,7 @@ import SwiftUI
  
  struct FruitTrackerView_Previews: PreviewProvider {
  static var previews: some View {
- FruitTrackerView().environmentObject(JsonModel())
+ FruitTrackerView().environmentObject(FruitViewModel())
  }
  }
  
