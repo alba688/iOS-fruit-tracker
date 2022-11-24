@@ -1,29 +1,16 @@
 import Foundation
 
+
 let url = "https://fruityvice.com/api/fruit/all"
-
-// data structure identical to data from json
-struct Fruit: Identifiable, Codable {
-    let id: Int
-    let order: String
-    let genus: String
-    let name: String
-    let family: String
-    let nutritions: Nutritions
-}
-
-struct Nutritions: Codable {
-    let sugar: Double
-    let protein: Double
-    let fat: Double
-    let carbohydrates: Double
-    let calories: Int
-}
 
 // create a class of data from json that is observable within application
 final class JsonModel: ObservableObject {
+
+    // variables
     @Published var Fruits: [Fruit] = []
-    
+    @Published var familyNames: [String] = []
+    @Published var ordersNames: [String] = []
+    @Published var genusNames: [String] = []
     
     // function to load data from HTTP request
     func loadFruits() async {
@@ -36,13 +23,28 @@ final class JsonModel: ObservableObject {
             // download + decode data from server
             let (data, _) = try await URLSession.shared.data(from: fruitUrl)
             Fruits = try JSONDecoder().decode([Fruit].self, from: data)
+            familyNames = Fruits.map({$0.family}).unique
+            ordersNames = Fruits.map({$0.order}).unique
+            genusNames = Fruits.map({$0.genus}).unique
         }
         catch {
             fatalError("Error. Cannot decode content from: \n\n\(url)")
         }
     }
-
 }
+
+private extension Array where Element: Equatable {
+    var unique: [Element] {
+        var uniqueValues: [Element] = []
+        forEach { item in
+            guard !uniqueValues.contains(item) else { return }
+            uniqueValues.append(item)
+        }
+        return uniqueValues
+    }
+}
+
+
 
 // placeholder for data
 let fruit = Fruit(id: 0, order: "FruitOrder", genus: "FruitGenus", name: "FruitName", family: "FruitFamily", nutritions: nutritions)

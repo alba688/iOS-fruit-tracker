@@ -82,7 +82,7 @@ struct ListView: View {
                         DetailPage(fruit)
                     }
                     label: {
-                        Image(systemName: "square.fill").foregroundColor( getFamilyColor(for: "\(fruit.family)") )
+                        Rectangle().frame(width: 35, height: 35).foregroundColor(getFamilyColor(for: "\(fruit.family)") )
                         Text(fruit.name + " (id: \(fruit.id)) "+fruit.family)
                     }
                 }
@@ -101,3 +101,4 @@ struct FruitListView_Previews: PreviewProvider {
             .environmentObject(JsonModel())
     }
 }
+

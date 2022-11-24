@@ -1,34 +1,64 @@
 import SwiftUI
 
 struct CategoriesView: View {
+    
     @EnvironmentObject var jsonData: JsonModel
     
-    /*var Families: [String] = []
+    @State private var showFamilies = false
+    @State private var showOrders = false
+    @State private var showGenus = false
     
-    func loadFamilies() async {
-        for fruit in jsonData.Fruits {
-            if !Families.contains(fruit.family) {
-                Families.append(fruit.family)
-            }
-        }
-        print(Families)
-     //{$0.family != $1.family}
-    }*/
-    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
+
     var body: some View {
-    
         NavigationView {
             List {
-                Section(header: Text("Families")) {
-                    ForEach(jsonData.Fruits) {
-                        fruit in
-                        Text(fruit.family)
+                DisclosureGroup("Family Names", isExpanded: $showFamilies) {
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 10) {
+                            ForEach(jsonData.familyNames, id: \.self) {
+                                Text($0)
+                                    .multilineTextAlignment(.leading)
+                                    .frame(width: 140, height: 50).foregroundColor(.white)
+                                    .background(Rectangle().fill(.blue.gradient)).cornerRadius(10)
+                            }
+                        }
                     }
                 }
-            }.task {
-                await jsonData.loadFruits()
+                DisclosureGroup("Order Names", isExpanded: $showOrders) {
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 10) {
+                            ForEach(jsonData.ordersNames, id: \.self) {
+                                Text($0)
+                                    .multilineTextAlignment(.leading)
+                                    .frame(width: 140, height: 50).foregroundColor(.white)
+                                    .background(Rectangle().fill(.blue.gradient)).cornerRadius(10)
+                            }
+                        }
+                    }
+                }
+                DisclosureGroup("Genus Names", isExpanded: $showGenus) {
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 10) {
+                            ForEach(jsonData.genusNames, id: \.self) {
+                                Text($0)
+                                    .multilineTextAlignment(.leading)
+                                    .frame(width: 140, height: 50).foregroundColor(.white)
+                                    .background(Rectangle().fill(.blue.gradient)).cornerRadius(10)
+                            }
+                        }
+                    }
+                }
             }
-            .navigationTitle("Categories")
+            .navigationTitle("Fruit Categories")
+            .onAppear() {
+                Task {
+                    await jsonData.loadFruits()
+                }
+            }
         }
     }
 }

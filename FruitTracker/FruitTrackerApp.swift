@@ -2,11 +2,11 @@ import SwiftUI
 
 @main
 struct FruitTrackerApp: App {
-    @StateObject var json = JsonModel()
+    @StateObject var jsonModel = JsonModel()
     
     var body: some Scene {
         WindowGroup {
-            FruitTrackerView().environmentObject(json)
+            FruitTrackerView().environmentObject(jsonModel)
         }
     }
 }
