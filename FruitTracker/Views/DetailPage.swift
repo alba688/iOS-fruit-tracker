@@ -9,6 +9,8 @@ struct DetailPage: View {
      //@State var animateFruit = false
      @State var highSugar = false
      @State var animateColor = false
+     @State var isConfirmed = false
+     @State var isCompleted = false
  
      private func checkSugar() {
          if (fruit.nutritions.sugar >= 10.0) {
@@ -38,11 +40,20 @@ struct DetailPage: View {
                      Text("* HIGH SUGAR *").foregroundColor(highSugar ? .red.opacity(1.0) : .red.opacity(0.0))
                      Spacer()
                  
-                     Button {
-                     //EatFruitView
-                     } label: {
-                         Text("+ Eat Fruit")
-                     }.buttonStyle(.borderedProminent).foregroundColor(.white)
+                     Button ("+ Eat Fruit") {
+                         isConfirmed = true
+                     }
+                     .buttonStyle(.borderedProminent).foregroundColor(.white)
+                     .confirmationDialog("Eat Fruit", isPresented: $isConfirmed) {
+                         Button("Eat 100g of this fruit") {
+                             DataModel.myShared.addFruit(fruit: fruit)
+                             DataModel.myShared.save()
+                             isCompleted = true
+                         }
+                         Button("Cancel", role: .destructive) {}
+                     }.alert("Fruit was eaten", isPresented: $isCompleted) {
+                         Button("OK", role: .cancel) {}
+                     }
                  }
              }
              .navigationTitle("\(fruit.name) (Id: \(fruit.id))")

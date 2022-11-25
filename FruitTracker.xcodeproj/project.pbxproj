@@ -22,6 +22,8 @@
 		EFC777B629300EEC009B7285 /* FamilyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777B529300EEC009B7285 /* FamilyListView.swift */; };
 		EFC777BB2930CDB1009B7285 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777BA2930CDB1009B7285 /* OrderListView.swift */; };
 		EFC777BD2930CEC4009B7285 /* GenusListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777BC2930CEC4009B7285 /* GenusListView.swift */; };
+		EFC777C32930E35E009B7285 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFC777C12930E35E009B7285 /* Database.xcdatamodeld */; };
+		EFC777C52930E3EF009B7285 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777C42930E3EF009B7285 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		EFC777B529300EEC009B7285 /* FamilyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyListView.swift; sourceTree = "<group>"; };
 		EFC777BA2930CDB1009B7285 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		EFC777BC2930CEC4009B7285 /* GenusListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenusListView.swift; sourceTree = "<group>"; };
+		EFC777C22930E35E009B7285 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
+		EFC777C42930E3EF009B7285 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				EF2ABD28291E737200A5F7FB /* JsonModel.swift */,
+				EFC777C42930E3EF009B7285 /* DataModel.swift */,
+				EFC777C12930E35E009B7285 /* Database.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -210,10 +216,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFC777C32930E35E009B7285 /* Database.xcdatamodeld in Sources */,
 				EFB3E1BD291E550800EA0747 /* HomeView.swift in Sources */,
 				EFB3E1AF291E502400EA0747 /* FruitTrackerView.swift in Sources */,
 				EFB3E1C3291E558800EA0747 /* LogView.swift in Sources */,
 				EFC777BD2930CEC4009B7285 /* GenusListView.swift in Sources */,
+				EFC777C52930E3EF009B7285 /* DataModel.swift in Sources */,
 				EF2ABD2D291E79E300A5F7FB /* DetailPage.swift in Sources */,
 				EFB3E1AD291E502400EA0747 /* FruitTrackerApp.swift in Sources */,
 				EFC777BB2930CDB1009B7285 /* OrderListView.swift in Sources */,
@@ -421,6 +429,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EFC777C12930E35E009B7285 /* Database.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFC777C22930E35E009B7285 /* Database.xcdatamodel */,
+			);
+			currentVersion = EFC777C22930E35E009B7285 /* Database.xcdatamodel */;
+			path = Database.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EFB3E1A1291E502400EA0747 /* Project object */;
 }
