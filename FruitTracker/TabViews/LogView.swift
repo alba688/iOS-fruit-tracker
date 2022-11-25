@@ -2,30 +2,32 @@ import SwiftUI
 
 struct LogView: View {
     
-    //@FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var fruits: FetchedResults<DbFruitLog>
-    @SectionedFetchRequest<Date, DbFruitLog> (sectionIdentifier: \.date!,
-        sortDescriptors: [
-            SortDescriptor(\.date),
-            SortDescriptor(\.name)
-    ])
-    private var fruitLog: SectionedFetchResults<Date, DbFruitLog>
+    @SectionedFetchRequest<String, DbFruitLog> (sectionIdentifier: \DbFruitLog.consumedDateAsString, sortDescriptors: [SortDescriptor(\DbFruitLog.date, order: .reverse), SortDescriptor(\.name),])
+    private var dbFruitLog: SectionedFetchResults<String, DbFruitLog>
     
-    //@State var groupedByDate: [String: [String]] = [:]
-
+    
     var body: some View {
+        
         NavigationView {
             List {
-                ForEach(fruitLog) {
-                    fruit in
-                    Section(fruit.id.formatted(date: .numeric, time: .omitted)) {
-                        ForEach(fruit) {
-                            name in
-                            Text(name.name ?? "unknown")
+                ForEach(dbFruitLog) {
+                    log in
+                    Section(log.id) {
+                        ForEach(log) {
+                            fruit in
+                            Text(fruit.name ?? "unknown")
                         }
                     }
                 }
-            }.navigationTitle("Fruit Log")
+            }
+            .navigationTitle("Fruit Log")
         }
+    }
+}
+
+extension DbFruitLog {
+    @objc var consumedDateAsString: String {
+        date!.formatted(date: .abbreviated, time: .omitted)
     }
 }
 
