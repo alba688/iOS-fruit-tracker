@@ -2,33 +2,30 @@ import SwiftUI
 
 struct LogView: View {
     
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var fruits: FetchedResults<DbFruitLog>
+    //@FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var fruits: FetchedResults<DbFruitLog>
+    @SectionedFetchRequest<Date, DbFruitLog> (sectionIdentifier: \.date!,
+        sortDescriptors: [
+            SortDescriptor(\.date),
+            SortDescriptor(\.name)
+    ])
+    private var fruitLog: SectionedFetchResults<Date, DbFruitLog>
     
-    @State var groupedByDate: [String: [String]] = [:]
+    //@State var groupedByDate: [String: [String]] = [:]
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(fruits) {
+                ForEach(fruitLog) {
                     fruit in
-                    VStack(alignment: .leading) {
-                        Text(fruit.name ?? "Unknown")
-                        HStack {
-                            Text(getFruitDate(date: fruit.date ?? Date()))
+                    Section(fruit.id.formatted(date: .numeric, time: .omitted)) {
+                        ForEach(fruit) {
+                            name in
+                            Text(name.name ?? "unknown")
                         }
                     }
                 }
             }.navigationTitle("Fruit Log")
         }
-    }
-    
-    func getFruitDate(date: Date) -> String {
-        let calendar = Calendar.current
-        let day = calendar.component(.day, from: date)
-        let month = calendar.component(.month, from: date)
-        let year = calendar.component(.year, from: date)
-        let theDate = "\(day)/\(month)/\(year)"
-        return theDate
     }
 }
 
