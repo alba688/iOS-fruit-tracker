@@ -20,10 +20,16 @@ struct CategoriesView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 10) {
                             ForEach(viewModel.familyNames, id: \.self) {
-                                Text($0)
-                                    .multilineTextAlignment(.leading)
-                                    .frame(width: 140, height: 50).foregroundColor(.white)
-                                    .background(Rectangle().fill(.blue.gradient)).cornerRadius(10)
+                                familyName in
+                                NavigationLink {
+                                    FamilyListView(familyName)
+                                }
+                                label: {
+                                    Text(familyName)
+                                        .multilineTextAlignment(.leading)
+                                        .frame(width: 140, height: 50).foregroundColor(.white)
+                                        .background(Rectangle().fill(.blue.gradient)).cornerRadius(10)
+                                }
                             }
                         }
                     }
@@ -32,10 +38,16 @@ struct CategoriesView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 10) {
                             ForEach(viewModel.ordersNames, id: \.self) {
-                                Text($0)
-                                    .multilineTextAlignment(.leading)
-                                    .frame(width: 140, height: 50).foregroundColor(.white)
-                                    .background(Rectangle().fill(.blue.gradient)).cornerRadius(10)
+                                orderName in
+                                NavigationLink {
+                                    OrderListView(orderName)
+                                }
+                                label: {
+                                    Text(orderName)
+                                        .multilineTextAlignment(.leading)
+                                        .frame(width: 140, height: 50).foregroundColor(.white)
+                                        .background(Rectangle().fill(.blue.gradient)).cornerRadius(10)
+                                }
                             }
                         }
                     }
@@ -44,10 +56,16 @@ struct CategoriesView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 10) {
                             ForEach(viewModel.genusNames, id: \.self) {
-                                Text($0)
-                                    .multilineTextAlignment(.leading)
-                                    .frame(width: 140, height: 50).foregroundColor(.white)
-                                    .background(Rectangle().fill(.blue.gradient)).cornerRadius(10)
+                                genusName in
+                                NavigationLink {
+                                    GenusListView(genusName)
+                                }
+                                label: {
+                                    Text(genusName)
+                                        .multilineTextAlignment(.leading)
+                                        .frame(width: 140, height: 50).foregroundColor(.white)
+                                        .background(Rectangle().fill(.blue.gradient)).cornerRadius(10)
+                                }
                             }
                         }
                     }

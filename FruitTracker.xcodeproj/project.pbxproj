@@ -19,7 +19,9 @@
 		EFB3E1BF291E552D00EA0747 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB3E1BE291E552D00EA0747 /* ListView.swift */; };
 		EFB3E1C1291E556000EA0747 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB3E1C0291E556000EA0747 /* CategoriesView.swift */; };
 		EFB3E1C3291E558800EA0747 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB3E1C2291E558800EA0747 /* LogView.swift */; };
-		EFC777B629300EEC009B7285 /* CategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777B529300EEC009B7285 /* CategoriesListView.swift */; };
+		EFC777B629300EEC009B7285 /* FamilyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777B529300EEC009B7285 /* FamilyListView.swift */; };
+		EFC777BB2930CDB1009B7285 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777BA2930CDB1009B7285 /* OrderListView.swift */; };
+		EFC777BD2930CEC4009B7285 /* GenusListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777BC2930CEC4009B7285 /* GenusListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +38,9 @@
 		EFB3E1BE291E552D00EA0747 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		EFB3E1C0291E556000EA0747 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		EFB3E1C2291E558800EA0747 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
-		EFC777B529300EEC009B7285 /* CategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListView.swift; sourceTree = "<group>"; };
+		EFC777B529300EEC009B7285 /* FamilyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyListView.swift; sourceTree = "<group>"; };
+		EFC777BA2930CDB1009B7285 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
+		EFC777BC2930CEC4009B7285 /* GenusListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenusListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				EF2ABD2C291E79E300A5F7FB /* DetailPage.swift */,
-				EFC777B529300EEC009B7285 /* CategoriesListView.swift */,
+				EFC777BC2930CEC4009B7285 /* GenusListView.swift */,
+				EFC777B529300EEC009B7285 /* FamilyListView.swift */,
+				EFC777BA2930CDB1009B7285 /* OrderListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,11 +213,13 @@
 				EFB3E1BD291E550800EA0747 /* HomeView.swift in Sources */,
 				EFB3E1AF291E502400EA0747 /* FruitTrackerView.swift in Sources */,
 				EFB3E1C3291E558800EA0747 /* LogView.swift in Sources */,
+				EFC777BD2930CEC4009B7285 /* GenusListView.swift in Sources */,
 				EF2ABD2D291E79E300A5F7FB /* DetailPage.swift in Sources */,
 				EFB3E1AD291E502400EA0747 /* FruitTrackerApp.swift in Sources */,
+				EFC777BB2930CDB1009B7285 /* OrderListView.swift in Sources */,
 				EF589610292E2DA8004CD975 /* Fruit.swift in Sources */,
 				EF589613292E7448004CD975 /* FruitViewModel.swift in Sources */,
-				EFC777B629300EEC009B7285 /* CategoriesListView.swift in Sources */,
+				EFC777B629300EEC009B7285 /* FamilyListView.swift in Sources */,
 				EFB3E1BF291E552D00EA0747 /* ListView.swift in Sources */,
 				EF2ABD29291E737200A5F7FB /* JsonModel.swift in Sources */,
 				EFB3E1C1291E556000EA0747 /* CategoriesView.swift in Sources */,
