@@ -4,6 +4,27 @@ struct ListView: View {
     
     @StateObject var viewModel = FruitViewModel()
     
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach(viewModel.Fruits.sorted(by: { $0.id < $1.id} )) {
+                    fruit in
+                    NavigationLink {
+                        DetailPage(fruit)
+                    }
+                    label: {
+                        Rectangle().frame(width: 35, height: 35).foregroundColor(getFamilyColor(for: "\(fruit.family)") )
+                        Text(fruit.name + " (id: \(fruit.id)) "+fruit.family)
+                    }
+                }
+            }
+            .task {
+                await viewModel.loadFruits()
+            }
+            .navigationTitle("List of fruits")
+        }
+    }
+    
     func getFamilyColor(for family: String) -> Color{
         if family == "Actinidiaceae" {
             return Color(red: 0.5, green: 0.5, blue: 0.8)
@@ -70,27 +91,6 @@ struct ListView: View {
         }
         else {
             return Color.black
-        }
-    }
-    
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(viewModel.Fruits.sorted(by: { $0.id < $1.id} )) {
-                    fruit in
-                    NavigationLink {
-                        DetailPage(fruit)
-                    }
-                    label: {
-                        Rectangle().frame(width: 35, height: 35).foregroundColor(getFamilyColor(for: "\(fruit.family)") )
-                        Text(fruit.name + " (id: \(fruit.id)) "+fruit.family)
-                    }
-                }
-            }
-            .task {
-                await viewModel.loadFruits()
-            }
-            .navigationTitle("List of fruits")
         }
     }
 }

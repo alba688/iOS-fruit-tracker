@@ -3,7 +3,7 @@ import SwiftUI
 
 struct CategoriesListView: View {
     var body: some View {
-        Text("CategoriesListView")
+        Text("Category List")
     }
 }
 
