@@ -52,6 +52,16 @@ struct DataModel {
         }
     }
     
+    func deleteFruit(fruit: DbFruitLog) {
+        let myContext = container.viewContext
+        myContext.delete(fruit)
+        do {
+            try myContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
     
     
 }

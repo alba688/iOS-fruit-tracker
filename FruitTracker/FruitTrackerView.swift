@@ -13,7 +13,7 @@ import SwiftUI
                 Label("Categories", systemImage: "folder.fill")
              }
             LogView().tabItem {
-                Label("Tracker", systemImage: "list.clipboard.fill")
+                Label("Daily Log", systemImage: "list.clipboard.fill")
              }
          }
      }
