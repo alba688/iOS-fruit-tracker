@@ -62,6 +62,16 @@ struct DataModel {
         }
     }
     
+    func countFruits() -> Int {
+
+        let request = DbFruitLog.fetchRequest()
+        let context = container.viewContext
+        
+        let events = try? context.fetch(request)
+        return events?.count ?? -1
+        
+    }
+    
     
     
 }
