@@ -42,7 +42,7 @@ struct LogView: View {
                                 })
                             })
                             .listRowSeparator(.hidden, edges: .top)
-                            .task {
+                            .onAppear {
                                 logCalories(date: fruit.fruitDateToString, cal: fruit.calories, sugar: fruit.sugar, carb: fruit.carbohydrates, protein: fruit.protein, fat: fruit.fat)
                             }
                         
@@ -66,13 +66,6 @@ struct LogView: View {
                                 Text("Fat: \(calorieLog.filter({ $0.date == "\(log.id)" }).map{$0.fat}.reduce(0, +), specifier: "%.2f")").font(.caption)
 
                             }.listRowSeparator(.hidden, edges: .top)
-                            
-                            
-                            
-                        }.task {
-                            print("calorieLog: \(calorieLog) ")
-                            print("============= BREAK ============")
-
                         }
                     }
                 }

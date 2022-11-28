@@ -62,13 +62,15 @@ struct DataModel {
         }
     }
     
-    func countFruits() -> Int {
+    func countFruits(for: String) -> Int{
+        //var countOfFruits: Int = 0
+        //let context = container.viewContext
+       // let fruitFetchRequest: NSFetchRequest<DbFruitLog> = DbFruitLog.fetchRequest()
 
-        let request = DbFruitLog.fetchRequest()
-        let context = container.viewContext
-        
-        let events = try? context.fetch(request)
-        return events?.count ?? -1
+         let request = DbFruitLog.fetchRequest()
+         let context = container.viewContext
+         let events = try? context.fetch(request)
+         return events?.count ?? -1
         
     }
     

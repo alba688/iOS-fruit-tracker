@@ -1,11 +1,18 @@
 import SwiftUI
+import CoreData
 
 struct DetailPage: View {
     var fruit: Fruit
     init(_ fruit: Fruit) {
         self.fruit = fruit
      }
- 
+    
+    @FetchRequest(sortDescriptors: [ SortDescriptor(\.name) ])
+    private var thisFruit: FetchedResults<DbFruitLog>
+    
+    @Environment(\.managedObjectContext) var moc
+    @State private var fruitFilter = "banana"
+     
      @State var highSugar = false
      @State var animateColor = false
      @State var isConfirmed = false
@@ -21,7 +28,7 @@ struct DetailPage: View {
              }
          }
      }
- 
+
      var body: some View {
          ZStack {
              VStack (alignment: .leading) {
@@ -131,7 +138,7 @@ func getEmoji(on name: String) -> String {
  
  struct DetailPage_Previews: PreviewProvider {
      static var previews: some View {
-         DetailPage(fruit)
+         DetailPage(fruit).environment(\.managedObjectContext, DataModel.myShared.container.viewContext)
      }
  }
  
