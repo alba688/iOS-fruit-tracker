@@ -3,15 +3,12 @@ import CoreData
 
 struct DetailPage: View {
     var fruit: Fruit
+    @FetchRequest var fetchRequest: FetchedResults<DbFruitLog>
     init(_ fruit: Fruit) {
         self.fruit = fruit
+        _fetchRequest = FetchRequest<DbFruitLog>(sortDescriptors: [], predicate: NSPredicate(format: "(name CONTAINS %@)", fruit.name))
      }
     
-    @FetchRequest(sortDescriptors: [ SortDescriptor(\.name) ])
-    private var thisFruit: FetchedResults<DbFruitLog>
-    
-    @Environment(\.managedObjectContext) var moc
-    @State private var fruitFilter = "banana"
      
      @State var highSugar = false
      @State var animateColor = false
@@ -28,11 +25,22 @@ struct DetailPage: View {
              }
          }
      }
+    
+    private func checkAmount() {
+        if (fetchRequest.count > 0) {
+            isAnimated = true
+        }
+    }
+    
+    func getNumber() -> Int{
+        return fetchRequest.count
+    }
 
      var body: some View {
          ZStack {
              VStack (alignment: .leading) {
                  List {
+                     Text("You've eaten \(fetchRequest.count ) \(fruit.name)'s")
                      Section("Classification") {
                          Text("Order: \(fruit.order)")
                          Text("Family: \(fruit.family)")
@@ -64,23 +72,16 @@ struct DetailPage: View {
                      }
                  }
                  .animation(nil, value: UUID())
-                 .navigationTitle("\(fruit.name) (Id: \(fruit.id))")
+                 .navigationTitle("\(fruit.name)")
                  .scrollContentBackground(.hidden)
                  .onAppear {
                      checkSugar()
                  }
                  .background(highSugar ? (animateColor ? .red.opacity(0.8) : .white.opacity(0.8)) : .blue.opacity(0.1))
                  }
-                 HStack {
+                 ForEach(0..<getNumber()) { index in
                      Text(getEmoji(on: fruit.name))
-                         .offset(x: 5, y: isAnimated ? 450 : -900)
-                         .font(isAnimated ? .custom("San Francisco", size: 3.6) : .custom("San Francisco", size: 72.0))
-
-                     Text(getEmoji(on: fruit.name))
-                         .offset(x: 100, y: isAnimated ? 450 : -700)
-                         .font(isAnimated ? .custom("San Francisco", size: 3.6) : .custom("San Francisco", size: 72.0))
-                     Text(getEmoji(on: fruit.name))
-                         .offset(x: -100, y: isAnimated ? 450 : -600)
+                         .offset(x: CGFloat(-120+(index*40)), y: isAnimated ? 450 : -900)
                          .font(isAnimated ? .custom("San Francisco", size: 3.6) : .custom("San Francisco", size: 72.0))
                  }
          }.onAppear {
@@ -88,7 +89,7 @@ struct DetailPage: View {
                  .easeOut(duration: 4)
                  .repeatForever(autoreverses: false)
              ) {
-                 isAnimated.toggle()
+                 checkAmount()
              }
          }
      }

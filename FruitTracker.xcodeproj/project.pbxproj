@@ -24,6 +24,8 @@
 		EFC777BD2930CEC4009B7285 /* GenusListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777BC2930CEC4009B7285 /* GenusListView.swift */; };
 		EFC777C32930E35E009B7285 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFC777C12930E35E009B7285 /* Database.xcdatamodeld */; };
 		EFC777C52930E3EF009B7285 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777C42930E3EF009B7285 /* DataModel.swift */; };
+		EFC777CA29361719009B7285 /* CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777C829361719009B7285 /* CoreDataClass.swift */; };
+		EFC777CB29361719009B7285 /* CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC777C929361719009B7285 /* CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		EFC777BC2930CEC4009B7285 /* GenusListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenusListView.swift; sourceTree = "<group>"; };
 		EFC777C22930E35E009B7285 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		EFC777C42930E3EF009B7285 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		EFC777C829361719009B7285 /* CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataClass.swift; sourceTree = "<group>"; };
+		EFC777C929361719009B7285 /* CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataProperties.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 		EF589611292E2DFE004CD975 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EFC777C829361719009B7285 /* CoreDataClass.swift */,
+				EFC777C929361719009B7285 /* CoreDataProperties.swift */,
 				EF2ABD28291E737200A5F7FB /* JsonModel.swift */,
 				EFC777C42930E3EF009B7285 /* DataModel.swift */,
 				EFC777C12930E35E009B7285 /* Database.xcdatamodeld */,
@@ -231,6 +237,8 @@
 				EFB3E1BF291E552D00EA0747 /* ListView.swift in Sources */,
 				EF2ABD29291E737200A5F7FB /* JsonModel.swift in Sources */,
 				EFB3E1C1291E556000EA0747 /* CategoriesView.swift in Sources */,
+				EFC777CB29361719009B7285 /* CoreDataProperties.swift in Sources */,
+				EFC777CA29361719009B7285 /* CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
