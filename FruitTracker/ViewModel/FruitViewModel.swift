@@ -64,7 +64,7 @@ private extension Array where Element: Equatable {
 }
 
 // placeholder for data previews
-let fruit = Fruit(id: 0, order: "GrapeOrder", genus: "GrapeGenus", name: "Watermelon", family: "GrapeFamily", nutritions: nutritions)
+let fruit = Fruit(id: 0, order: "GrapeOrder", genus: "GrapeGenus", name: "Grape", family: "GrapeFamily", nutritions: nutritions)
 let nutritions = Nutritions(sugar: 12.0, protein: 1.0, fat: 0.2, carbohydrates: 30.0, calories: 120)
 let familyText = "Musaceae"
 let orderText = "Zingiberales"

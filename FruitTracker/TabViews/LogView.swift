@@ -1,4 +1,5 @@
 import SwiftUI
+// This Project Uses XCode 14.1 and Swift 5.7.1
 
 struct LogView: View {
     
@@ -75,27 +76,11 @@ struct LogView: View {
     }
 }
 
-
  extension DbFruitLog {
     @objc var fruitDateToString: String {
         date!.formatted(date: .abbreviated, time: .omitted)
     }
 }
- 
-
-extension DbFruitLog {
-    @objc var formatDate: Date {
-        let calendar = Calendar.current
-
-        var components = calendar.dateComponents([.year, .month, .day], from: date!)
-        components.hour = 00
-        components.minute = 00
-        components.second = 00
-
-        return calendar.date(from: components)!
-    }
-}
- 
 
 struct FruitLogView_Previews: PreviewProvider {
     static var previews: some View {

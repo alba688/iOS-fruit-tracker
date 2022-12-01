@@ -81,7 +81,7 @@ struct DetailPage: View {
                  }
                  ForEach(0..<getNumber()) { index in
                      Text(getEmoji(on: fruit.name))
-                         .offset(x: CGFloat(-120+(index*40)), y: isAnimated ? 450 : -900)
+                         .offset(x: Double.random(in: -200..<200), y: isAnimated ? 450 : -900)
                          .font(isAnimated ? .custom("San Francisco", size: 3.6) : .custom("San Francisco", size: 72.0))
                  }
          }.onAppear {

@@ -1,4 +1,6 @@
 import SwiftUI
+// This Project Uses XCode 14.1 and Swift 5.7.1
+
 
  struct FruitTrackerView: View {
      var body: some View {
